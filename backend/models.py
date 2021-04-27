@@ -14,9 +14,16 @@ class Movie(models.Model):
 
     genres = models.ManyToManyField('Genre', related_name='movies')
 
+    # to_string() method
+    def __str__(self):
+        return self.title
+
 
 # Genre Model
 class Genre(models.Model):
     name = models.CharField(max_length=256)
+
+    def __str__(self):
+        return self.name
 
 
