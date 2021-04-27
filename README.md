@@ -20,3 +20,7 @@ pipenv install Django
 django-admin startproject <name> .
 ```
 
+## Python Interpreter selektieren
+
+## Launch.json erstellen
+
