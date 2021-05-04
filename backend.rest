@@ -14,3 +14,11 @@ Content-Type: application/json
     "genres": [1]
 }
 
+### 
+PUT http://127.0.0.1:8000/api/v1/movies/4/
+Content-Type: application/json
+
+{
+    "title": "Superman II",
+    "genres": [1]
+}

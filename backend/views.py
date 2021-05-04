@@ -14,8 +14,8 @@ class MovieApiView(ModelViewSet):
     queryset = Movie.objects.all()
 
     def get_serializer_class(self):
-        # POST Request --> get MovieCreateSerializer ...
-        if self.action == 'create':
+        # POST, PUT Request --> get MovieCreateSerializer ...
+        if self.action == 'create' or self.action == 'update':
             return MovieCreateSerializer
         return MovieSerializer
 
