@@ -1,0 +1,16 @@
+GET http://127.0.0.1:8000/api/v1/movies/
+
+###
+
+GET http://127.0.0.1:8000/api/v1/movies/1/
+
+###
+POST http://127.0.0.1:8000/api/v1/movies/
+Content-Type: application/json
+
+{
+    "title": "Superman",
+    "duration": 110,
+    "genres": [1]
+}
+
