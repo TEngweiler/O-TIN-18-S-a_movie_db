@@ -35,3 +35,28 @@ GET http://127.0.0.1:8000/api/v1/movies/?genres=2&search=&ordering=title
 ### Basic Authentication
 GET http://127.0.0.1:8000/api/v1/genres
 Authorization: Basic admin Test1234$
+
+### Token Authentication
+GET http://127.0.0.1:8000/api/v1/genres
+Authorization: Token 288bddfd2fbd54e4b1f37d4bc8cef0c75bb451a8
+
+### Get JWT Tokens
+POST http://localhost:8000/api/v1/token/
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "Test1234$"
+}
+
+### JWT Authentication
+GET http://127.0.0.1:8000/api/v1/genres
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIwNzU4MjE1LCJqdGkiOiIyZTdiYmYyYjdiM2U0OGIyODRhYzAxZjg0YzEzYjRkMCIsInVzZXJfaWQiOjF9.S3M13DHPu5ItErOyP_xgUpizp0PY0Ey8EmZRQdq7wfo
+
+### Refresh JWT Token
+POST http://127.0.0.1:8000/api/v1/token/refresh/
+Content-Type: application/json
+
+{
+    "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyMDg0NDI4OSwianRpIjoiMzIzMDg4MGQ5MDk4NGFkMmFhZjZjZjUyYmM0ZjJkNzciLCJ1c2VyX2lkIjoxfQ.IgYsbWw6t1rY1IHA2ruLuDYmtC1H-gZ2ZkiMA4BhXl4"
+}
