@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.viewsets import ModelViewSet
 from django_filters.rest_framework import DjangoFilterBackend
 
@@ -13,8 +14,10 @@ class MovieApiView(ModelViewSet):
 
     #serializer_class = MovieSerializer
     queryset = Movie.objects.all()
-    filter_backends = [DjangoFilterBackend]
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_fields = ['genres']
+    search_fields = ['title', 'description']
+    ordering_fields = ['title', 'duration']
 
     def get_serializer_class(self):
         # POST, PUT Request --> get MovieCreateSerializer ...
