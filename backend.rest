@@ -51,7 +51,7 @@ Content-Type: application/json
 
 ### JWT Authentication
 GET http://127.0.0.1:8000/api/v1/genres
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIwNzU4MjE1LCJqdGkiOiIyZTdiYmYyYjdiM2U0OGIyODRhYzAxZjg0YzEzYjRkMCIsInVzZXJfaWQiOjF9.S3M13DHPu5ItErOyP_xgUpizp0PY0Ey8EmZRQdq7wfo
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIwNzU4MjE1LCJqdGkiOiIyZTdiYmYyYjdiM2U0OGIyODRhYzAxZjg0YzEzYjRkMCIsInVzZXJfaWQiOjF9.S3M13DHPu5ItErOyP_xgUpizp0PY0Ey8EmZRQdq7
 
 ### Refresh JWT Token
 POST http://127.0.0.1:8000/api/v1/token/refresh/
