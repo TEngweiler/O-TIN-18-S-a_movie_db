@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from rest_framework.filters import SearchFilter, OrderingFilter
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 from django_filters.rest_framework import DjangoFilterBackend
 
@@ -29,4 +30,10 @@ class MovieApiView(ModelViewSet):
 class GenreApiView(ModelViewSet):
     serializer_class = GenreSerializer
     queryset = Genre.objects.all()
+
+    # Default Pagination disable
+    pagination_class = None
+
+    # permission only is Authenticated -> override the default settings
+    permission_classes = [IsAuthenticated]
 
