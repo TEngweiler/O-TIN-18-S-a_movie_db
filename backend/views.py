@@ -1,6 +1,9 @@
 from django.shortcuts import render
 
+from rest_framework.filters import SearchFilter, OrderingFilter
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
+from django_filters.rest_framework import DjangoFilterBackend
 
 from .serializers import MovieSerializer, MovieCreateSerializer, GenreSerializer
 from .models import Movie, Genre
@@ -12,6 +15,10 @@ class MovieApiView(ModelViewSet):
 
     #serializer_class = MovieSerializer
     queryset = Movie.objects.all()
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    filterset_fields = ['genres']
+    search_fields = ['title', 'description']
+    ordering_fields = ['title', 'duration']
 
     def get_serializer_class(self):
         # POST, PUT Request --> get MovieCreateSerializer ...
@@ -23,4 +30,10 @@ class MovieApiView(ModelViewSet):
 class GenreApiView(ModelViewSet):
     serializer_class = GenreSerializer
     queryset = Genre.objects.all()
+
+    # Default Pagination disable
+    pagination_class = None
+
+    # permission only is Authenticated -> override the default settings
+    permission_classes = [IsAuthenticated]
 
