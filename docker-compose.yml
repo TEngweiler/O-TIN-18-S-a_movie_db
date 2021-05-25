@@ -3,6 +3,9 @@ version: "3.8"
 services:
     app:
         build: .
+        environment: 
+            - DEBUG=True
+            - DJANGO_SECRET_KEY=fjkdsfsjkgdlsghalhsgljksh4lajkthglgh4lkgh
         volumes:
             - .:/app
         ports:
