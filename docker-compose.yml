@@ -5,7 +5,8 @@ services:
         build: .
         environment: 
             - DEBUG=True
-            - DJANGO_SECRET_KEY=fjkdsfsjkgdlsghalhsgljksh4lajkthglgh4lkgh
+            # Get variable from .env file -> ${variable}
+            - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
         volumes:
             - .:/app
         ports:
