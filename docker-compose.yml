@@ -12,3 +12,14 @@ services:
         ports:
             - 8000:8000
         command: python manage.py runserver 0.0.0.0:8000
+
+    db:
+        image: postgres:12-alpine
+        environment: 
+            - POSTGRES_DB=${DJANGO_DB_NAME}
+            - POSTGRES_USER=${DJANGO_DB_USER}
+            - POSTGRES_PASSWORD=${DJANGO_DB_PASSWORD}
+        volumes: 
+            - ./data/db:/var/lib/postgresql/data
+        
+        
