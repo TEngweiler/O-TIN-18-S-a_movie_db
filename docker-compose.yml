@@ -3,10 +3,15 @@ version: "3.8"
 services:
     app:
         build: .
+        # waiting on db container
+        depends_on: 
+            - db
+        # variante 1
         environment: 
             - DEBUG=True
-            # Get variable from .env file -> ${variable}
-            - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY}
+        # variante 2 (beide gleichzeitg auch möglich)
+        env_file:
+            - .env
         volumes:
             - .:/app
         ports:
